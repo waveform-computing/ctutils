@@ -30,7 +30,7 @@ res1 = (1920, 1080)
 file2 = QtGui.QFileDialog.getOpenFileName(caption='Select vol file 2', filters='Vol files (*.vol)')
 res2 = (1920, 1080)
 
-with io.open(file1, 'rb') as f1:
+with open(file1, 'rb') as f1:
     count = f1.seek(0, io.SEEK_END) // (res1[0] * res1[1])
     assert count * res1[0] * res1[1] == f1.tell()
     f1.seek(0)
@@ -44,7 +44,7 @@ with io.open(file1, 'rb') as f1:
         print('Processing image %d' % index)
         counter1.update(image.flatten())
 
-with io.open(file2, 'rb') as f2:
+with open(file2, 'rb') as f2:
     count = f2.seek(0, io.SEEK_END) // (res2[0] * res2[1])
     assert count * res2[0] * res2[1] == f2.tell()
     f2.seek(0)

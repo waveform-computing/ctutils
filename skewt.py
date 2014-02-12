@@ -3,12 +3,13 @@
 import io
 import os
 import sys
+import csv
 from collections import Counter
 
 import scipy
 import scipy.misc
 import numpy as np
-import matplotlib.pyplot as plot
+import matplotlib.pyplot as plt
 try:
     from PyQt4 import QtCore, QtGui, uic
 except ImportError:
@@ -24,35 +25,41 @@ APPLICATION.setOrganizationName('Waveform')
 APPLICATION.setOrganizationDomain('waveform.org.uk')
 
 cwd = os.getcwd()
-dir1 = QtGui.QFileDialog.getExistingDirectory(caption='Select dir 1')
-dir2 = QtGui.QFileDialog.getExistingDirectory(caption='Select dir 2')
+#dir1 = QtGui.QFileDialog.getExistingDirectory(caption='Select dir 1')
+#dir2 = QtGui.QFileDialog.getExistingDirectory(caption='Select dir 2')
+dir1 = '/media/dave/My Passport/Callibration test scans/1st Run_16 bit unsigned/'
+dir2 = '/media/dave/My Passport/Callibration test scans/2nd Run_16 bit unsigned/'
 
 os.chdir(dir1)
 
 images1 = (
-    scipy.misc.imread(f)
-    for f in sorted(os.listdir('.'))
-    if f.endswith('.tif')
+    filename
+    for filename in sorted(os.listdir('.'))
+    if filename.endswith('.tif')
     )
 
 counter1 = Counter()
-for index, image in enumerate(images1):
-    print('Processing image %d' % index)
-    counter1.update(image.flatten())
+for index, filename in enumerate(images1):
+    with open(filename, 'rb') as f:
+        image = scipy.misc.imread(f, flatten=True)
+        print('Processing image %d' % index)
+        counter1.update(image.flatten())
 
 #change directory
 os.chdir(dir2)
 
 images2 = (
-    scipy.misc.imread(f)
-    for f in sorted(os.listdir('.'))
-    if f.endswith('.tif')
+    filename
+    for filename in sorted(os.listdir('.'))
+    if filename.endswith('.tif')
     )
 
 counter2 = Counter()
-for index, image in enumerate(images2):
-    print('Processing image %d' % index)
-    counter2.update(image.flatten())
+for index, filename in enumerate(images2):
+    with open(filename, 'rb') as f:
+        image = scipy.misc.imread(f, flatten=True)
+        print('Processing image %d' % index)
+        counter2.update(image.flatten())
 
 os.chdir(cwd)
 
