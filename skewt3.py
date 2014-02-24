@@ -29,7 +29,7 @@ APPLICATION.setOrganizationDomain('waveform.org.uk')
 
 file1 = QtGui.QFileDialog.getOpenFileName(caption='Select vol file 1', filters='TXM files (*.txm)')
 file2 = QtGui.QFileDialog.getOpenFileName(caption='Select vol file 2', filters='TXM files (*.txm)')
-with cf.CompoundFileReader(file1) as doc1:
+with CompoundFileReader(file1) as doc1:
     with doc.open('ImageInfo/ImageWidth') as width_file, \
             doc.open('ImageInfo/ImageHeight') as height_file, \
             doc.open('ImageInfo/DataType') as type_file:
@@ -52,7 +52,7 @@ with cf.CompoundFileReader(file1) as doc1:
                         ).reshape((res1[1], res1[0]))
                     counter1.update(image)
 
-with cf.CompoundFileReader(file2) as doc2:
+with CompoundFileReader(file2) as doc2:
     with doc.open('ImageInfo/ImageWidth') as width_file, \
             doc.open('ImageInfo/ImageHeight') as height_file, \
             doc.open('ImageInfo/DataType') as type_file:
