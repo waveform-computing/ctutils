@@ -54,7 +54,7 @@ def main():
             url                  = app.__url__,
             license              = [
                 c.rsplit('::', 1)[1].strip()
-                for c in __classifiers__
+                for c in app.__classifiers__
                 if c.startswith('License ::')
                 ][0],
             keywords             = ' '.join(app.__keywords__),

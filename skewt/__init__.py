@@ -1,5 +1,7 @@
 "Tools for analyzing skew in CT scans"
 
+import sys
+
 __project__      = 'skewt'
 __version__      = '0.1'
 __author__       = 'Dave Hughes'
@@ -26,7 +28,6 @@ __keywords__ = [
 
 __requires__ = [
     'compoundfiles',
-    'pyqt',
     'matplotlib',
     'numpy',
     ]

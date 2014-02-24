@@ -14,7 +14,6 @@ str = type('')
 import io
 import os
 
-import serial
 try:
     from PyQt4 import QtCore, QtGui, uic
 except ImportError:

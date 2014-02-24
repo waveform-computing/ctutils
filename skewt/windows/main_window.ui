@@ -50,10 +50,17 @@
     <property name="title">
      <string>&amp;Help</string>
     </property>
-    <addaction name="about_skewt_action"/>
+    <addaction name="about_action"/>
     <addaction name="about_qt_action"/>
    </widget>
+   <widget class="QMenu" name="view_menu">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+    <addaction name="status_bar_action"/>
+   </widget>
    <addaction name="file_menu"/>
+   <addaction name="view_menu"/>
    <addaction name="help_menu"/>
   </widget>
   <widget class="QStatusBar" name="status_bar"/>
@@ -108,7 +115,7 @@
     <enum>QAction::QuitRole</enum>
    </property>
   </action>
-  <action name="about_skewt_action">
+  <action name="about_action">
    <property name="text">
     <string>&amp;About Skewt</string>
    </property>
@@ -122,6 +129,11 @@
    </property>
    <property name="menuRole">
     <enum>QAction::AboutQtRole</enum>
+   </property>
+  </action>
+  <action name="status_bar_action">
+   <property name="text">
+    <string>Status &amp;Bar</string>
    </property>
   </action>
  </widget>
