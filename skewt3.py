@@ -27,53 +27,57 @@ APPLICATION.setApplicationVersion('0.1')
 APPLICATION.setOrganizationName('Waveform')
 APPLICATION.setOrganizationDomain('waveform.org.uk')
 
-file1 = QtGui.QFileDialog.getOpenFileName(caption='Select vol file 1', filters='TXM files (*.txm)')
-file2 = QtGui.QFileDialog.getOpenFileName(caption='Select vol file 2', filters='TXM files (*.txm)')
+file1 = str(QtGui.QFileDialog.getOpenFileName(caption='Select vol file 1', filter='TXM files (*.txm)'))
+if not file1:
+    raise ValueError('Terminated by user')
 with CompoundFileReader(file1) as doc1:
-    with doc.open('ImageInfo/ImageWidth') as width_file, \
-            doc.open('ImageInfo/ImageHeight') as height_file, \
-            doc.open('ImageInfo/DataType') as type_file:
-        res1 = (
-                st.unpack('<L', width_file.read()),
-                st.unpack('<L', height_file.read())
-                )
-        dtype1 = {
-                5: np.uint16,
-                10: np.float32,
-                }[st.uinpack('<L', type_file.read())
+    with doc1.open('ImageInfo/ImageWidth') as width_file:
+        width1 = st.unpack('<L', width_file.read())[0]
+    with doc1.open('ImageInfo/ImageHeight') as height_file:
+        height1 = st.unpack('<L', height_file.read())[0]
+    with doc1.open('ImageInfo/DataType') as type_file:
+        dtype1 = st.unpack('<L', type_file.read())[0]
+    res1 = (width1, height1)
+    dtype1 = {
+            5: np.uint16,
+            10: np.float32,
+            }[dtype1]
     counter1 = Counter()
-    for storage in doc.root:
+    for storage in doc1.root:
         if storage.isdir and storage.name.startswith('ImageData'):
             for stream in storage:
                 print('Processing image %s' % stream.name)
-                with doc.open(stream) as image_data:
+                with doc1.open(stream) as image_data:
                     image = np.fromstring(
                         image_data.read(), dtype=dtype1
-                        ).reshape((res1[1], res1[0]))
-                    counter1.update(image)
+                        ).reshape((height1, width1))
+                    counter1.update(image.flatten())
 
+file2 = str(QtGui.QFileDialog.getOpenFileName(caption='Select vol file 2', filter='TXM files (*.txm)'))
+if not file2:
+    raise ValueError('Terminated by user')
 with CompoundFileReader(file2) as doc2:
-    with doc.open('ImageInfo/ImageWidth') as width_file, \
-            doc.open('ImageInfo/ImageHeight') as height_file, \
-            doc.open('ImageInfo/DataType') as type_file:
-        res2 = (
-                st.unpack('<L', width_file.read()),
-                st.unpack('<L', height_file.read())
-                )
-        dtype2 = {
-                5: np.uint16,
-                10: np.float32,
-                }[st.uinpack('<L', type_file.read())
+    with doc2.open('ImageInfo/ImageWidth') as width_file:
+        width2 = st.unpack('<L', width_file.read())[0]
+    with doc2.open('ImageInfo/ImageHeight') as height_file:
+        height2 = st.unpack('<L', height_file.read())[0]
+    with doc2.open('ImageInfo/DataType') as type_file:
+        dtype2 = st.unpack('<L', type_file.read())[0]
+    res2 = (width2, height2)
+    dtype2 = {
+            5: np.uint16,
+            10: np.float32,
+            }[dtype2]
     counter2 = Counter()
-    for storage in doc.root:
+    for storage in doc2.root:
         if storage.isdir and storage.name.startswith('ImageData'):
             for stream in storage:
                 print('Processing image %s' % stream.name)
-                with doc.open(stream) as image_data:
+                with doc2.open(stream) as image_data:
                     image = np.fromstring(
                         image_data.read(), dtype=dtype2
-                        ).reshape((res2[1], res2[0]))
-                    counter2.update(image)
+                        ).reshape((height2, width2))
+                    counter2.update(image.flatten())
 
 # calculate counts from each set of images
 with io.open('data1.csv', 'wb') as f:
