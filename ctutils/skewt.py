@@ -3,21 +3,21 @@
 
 # Copyright 2014 Dave Hughes <dave@waveform.org.uk>
 #
-# This file is part of skewt.
+# This file is part of ctutils.
 #
-# skewt is free software: you can redistribute it and/or modify it under the
+# ctutils is free software: you can redistribute it and/or modify it under the
 # terms of the GNU General Public License as published by the Free Software
 # Foundation, either version 3 of the License, or (at your option) any later
 # version.
 #
-# skewt is distributed in the hope that it will be useful, but WITHOUT ANY
+# ctutils is distributed in the hope that it will be useful, but WITHOUT ANY
 # WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
 # A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License along with
-# skewt. If not, see <http://www.gnu.org/licenses/>.
+# ctutils. If not, see <http://www.gnu.org/licenses/>.
 
-"Main module for the skewt application."
+"Main module for the ctutils application."
 
 from __future__ import (
     unicode_literals,
@@ -39,8 +39,8 @@ try:
 except ImportError:
     from PySide import QtCore, QtGui
 
-from skewt import __version__
-from skewt.windows.main_window import MainWindow
+from ctutils import __version__
+from ctutils.windows.main_window import MainWindow
 
 
 APPLICATION = None
@@ -60,7 +60,7 @@ def main(args=None):
         args = sys.argv
     atexit.register(pkg_resources.cleanup_resources)
     APPLICATION = QtGui.QApplication(args)
-    APPLICATION.setApplicationName('skewt')
+    APPLICATION.setApplicationName('ctutils')
     APPLICATION.setApplicationVersion(__version__)
     APPLICATION.setOrganizationName('Waveform')
     APPLICATION.setOrganizationDomain('waveform.org.uk')

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # vim: set et sw=4 sts=4:
 
-"Module implementing the skewt main window."
+"Module implementing the ctutils main window."
 
 from __future__ import (
     unicode_literals,
@@ -19,11 +19,11 @@ try:
 except ImportError:
     from PySide import QtCore, QtGui, uic
 
-from skewt.windows import get_icon, get_ui_file
+from ctutils.windows import get_icon, get_ui_file
 
 
 class MainWindow(QtGui.QMainWindow):
-    "The skewt main window"
+    "The ctutils main window"
 
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
@@ -88,7 +88,7 @@ Project homepage is at
 <p>Copyright &copy; 2012-2013 {author} &lt;<a href="mailto:{author_email}">{author_email}</a>&gt;</p>""")).format(
                 application=QtGui.QApplication.instance().applicationName(),
                 version=QtGui.QApplication.instance().applicationVersion(),
-                url='https://www.waveform.org.uk/skewt/',
+                url='https://www.waveform.org.uk/ctutils/',
                 author='Dave Hughes',
                 author_email='dave@waveform.org.uk',
             ))

@@ -1,8 +1,8 @@
-============
-skewt README
-============
+==============
+ctutils README
+==============
 
-Skewt is a simple system for analyzing skew in CT scans. Currently the project
-supports scans in TXM format (as produced by Xradia products), VGI format
-(as produced by ??? products), and TIFF stacks.
+ctutils is a set of simple tools for analyzing data in CT scans. Currently the
+project supports scans in TXM format (as produced by Xradia products), VGI
+format (as produced by ??? products), and TIFF stacks.
 

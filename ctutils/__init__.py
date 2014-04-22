@@ -1,12 +1,12 @@
-"Tools for analyzing skew in CT scans"
+"Tools for analyzing data in CT scans"
 
 import sys
 
-__project__      = 'skewt'
+__project__      = 'ctutils'
 __version__      = '0.1'
 __author__       = 'Dave Hughes'
 __author_email__ = 'dave@waveform.org.uk'
-__url__          = 'http://pypi.python.org/pypi/skewt'
+__url__          = 'http://pypi.python.org/pypi/ctutils'
 __platforms__    = ['ALL']
 
 __classifiers__ = [
@@ -23,7 +23,7 @@ __classifiers__ = [
 
 __keywords__ = [
     'ct',
-    'skew',
+    'tomography',
     ]
 
 __requires__ = [
@@ -47,12 +47,12 @@ if sys.version_info[:2] == (3, 2):
 
 __entry_points__ = {
     'console_scripts': [
-        'ctagg = skewt.ctagg:main',
-        #'ctinfo = skewt.ctinfo:main',
-        #'ctstack = skewt.ctstack:main',
+        'ctagg = ctutils.ctagg:main',
+        #'ctinfo = ctutils.ctinfo:main',
+        #'ctstack = ctutils.ctstack:main',
         ],
     'gui_scripts': [
-        #'skewt = skewt.skewt:main',
+        #'ctview = ctutils.ctview:main',
         ]
     }
 
