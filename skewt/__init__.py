@@ -48,6 +48,8 @@ if sys.version_info[:2] == (3, 2):
 __entry_points__ = {
     'console_scripts': [
         'ctagg = skewt.ctagg:main',
+        #'ctinfo = skewt.ctinfo:main',
+        #'ctstack = skewt.ctstack:main',
         ],
     'gui_scripts': [
         #'skewt = skewt.skewt:main',
