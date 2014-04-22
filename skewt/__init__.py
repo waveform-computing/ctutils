@@ -6,7 +6,7 @@ __project__      = 'skewt'
 __version__      = '0.1'
 __author__       = 'Dave Hughes'
 __author_email__ = 'dave@waveform.org.uk'
-__url__          = 'http://www.waveform.org.uk/skewt'
+__url__          = 'http://pypi.python.org/pypi/skewt'
 __platforms__    = ['ALL']
 
 __classifiers__ = [
@@ -28,12 +28,13 @@ __keywords__ = [
 
 __requires__ = [
     'compoundfiles',
-    'matplotlib',
     'numpy',
+    'Pillow',
     ]
 
 __extra_requires__ = {
     'doc': ['sphinx'],
+    'GUI': ['pyqt'],
     }
 
 if sys.version_info[:2] == (3, 2):
@@ -45,8 +46,11 @@ if sys.version_info[:2] == (3, 2):
         ])
 
 __entry_points__ = {
+    'console_scripts': [
+        'ctagg = skewt.ctagg:main',
+        ],
     'gui_scripts': [
-        'skewt = skewt.skewt:main',
+        #'skewt = skewt.skewt:main',
         ]
     }
 
