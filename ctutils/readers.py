@@ -38,6 +38,8 @@ import compoundfiles
 import numpy as np
 from PIL import Image
 
+from .configparser import ConfigParser
+
 
 class TxmScanReader(object):
     format_name = 'Xradia TXM format'
