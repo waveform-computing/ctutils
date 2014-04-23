@@ -21,7 +21,7 @@ endif
 NAME:=$(shell $(PYTHON) $(PYFLAGS) setup.py --name)
 VER:=$(shell $(PYTHON) $(PYFLAGS) setup.py --version)
 ifeq ($(shell lsb_release -si),Ubuntu)
-DEB_SUFFIX:=ubuntu1
+DEB_SUFFIX:=~ppa1
 else
 DEB_SUFFIX:=
 endif
@@ -144,6 +144,8 @@ release: $(PY_SOURCES) $(DOC_SOURCES) $(DEB_SOURCES)
 	test -z "$(shell git status --porcelain)"
 	# update the changelog with new release information
 	dch --newversion $(VER)-1$(DEB_SUFFIX) --controlmaint
+	# ensure all packages build successfully before committing
+	$(MAKE) dist
 	# commit the changes and add a new tag
 	git commit debian/changelog -m "Updated changelog for release $(VER)"
 	git tag -s release-$(VER) -m "Release $(VER)"
