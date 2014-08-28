@@ -160,7 +160,7 @@ class TerminalApplication(object):
         if args is None:
             args = sys.argv[1:]
         if argcomplete:
-            argcomplete.autocomplete(self.parser, exclude=['-P'])
+            argcomplete.autocomplete(self.parser)
         elif 'COMP_LINE' in os.environ:
             return 0
         sys.excepthook = self.handle
