@@ -3,21 +3,20 @@
 import sys
 
 __project__      = 'ctutils'
-__version__      = '0.1'
+__version__      = '0.2'
 __author__       = 'Dave Hughes'
 __author_email__ = 'dave@waveform.org.uk'
 __url__          = 'http://pypi.python.org/pypi/ctutils'
 __platforms__    = ['ALL']
 
 __classifiers__ = [
-    'Development Status :: 3 - Alpha',
+    'Development Status :: 4 - Beta',
     'Intended Audience :: Science/Research',
     'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
     'Operating System :: Unix',
     'Operating System :: Microsoft :: Windows',
     'Programming Language :: Python :: 2.7',
-    'Programming Language :: Python :: 3.2',
-    'Programming Language :: Python :: 3.3',
+    'Programming Language :: Python :: 3',
     'Topic :: Scientific/Engineering :: Visualization',
     ]
 
