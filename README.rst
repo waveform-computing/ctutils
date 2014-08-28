@@ -2,19 +2,38 @@
 CT Utils
 ========
 
-CT utils is a set of simple tools for analyzing data in CT scans. Currently the
-project supports scans in TXM format (as produced by Xradia products), VGI
-format (as produced by ??? products), and TIFF stacks.
+This project provides a set (currently one!) of small utilities for processing
+data from CT scanners in a variety of formats. Currently, the supported formats
+are:
+
+* Xradia's TXM format
+* Volume Graphics VGI+VOL format
+* Grayscale TIFF stacks (8-bit, 16-bit)
 
 At the moment, the project's goal is to produce a set of simple command line
 tools for batch processing of CT scans, and an API to permit easy access to
 scan data from Python.
 
-The code is licensed under the `GPL v3`_ or above. Packages can be
-`downloaded`_ from PyPI. The `source code`_ can be obtained from GitHub, which
-also hosts the `bug tracker`_. Documentation is yet to be written...
+.. note::
 
-.. _downloaded: http://pypi.python.org/pypi/ctutils
+    Please note that our understanding of several of the formats above is
+    limited (in particular TXM and VGI+VOL), specifically in terms of the data
+    types supported within these files.
+
+    If you encounter a file which does not work with CT Utils, please file a
+    `bug report <bug tracker>`_ so that we can enhance the suite. Obviously
+    example files make debugging easier, but we understand there may be
+    confidentiality issues with certain scans (publication embargoes, medical
+    privacy, etc.). If this applies to your scans, please do not attach them to
+    the bug report!
+
+Links
+=====
+
+* The project is licensed under the `GPL v3`_ or above
+* Project `source code`_ is hosted by GitHub which also hosts the `bug tracker`_
+* The `documentation`_ is hosted by ReadTheDocs
+
 .. _documentation: http://ctutils.readthedocs.org/
 .. _source code: https://github.com/waveform80/ctutils
 .. _bug tracker: https://github.com/waveform80/ctutils/issues
