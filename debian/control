@@ -1,0 +1,28 @@
+Source: ctutils
+Maintainer: Dave Hughes <dave@waveform.org.uk>
+Homepage: http://compoundpi.readthedocs.org/
+Section: science
+Priority: extra
+Build-Depends: debhelper (>=8), python-all (>= 2.7), python-setuptools, python-docutils, python-sphinx (>= 1.0.7+dfsg-1~)
+Standards-Version: 3.9.3
+X-Python-Version: >= 2.7
+
+Package: ctutils
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends}, python-imaging, python-numpy, python-compoundfiles
+Suggests: ctutils-docs, python-argcomplete
+Description: applications for batch processing of CT scans.
+ CT Utils is a suite of small utilities for batch processing of data from CT
+ scanners in a variety of commonly used formats (TXM, VGI, TIFF stacks).
+ .
+ This package provides the command line utilities for the suite.
+
+Package: ctutils-docs
+Architecture: all
+Section: doc
+Depends: ${misc:Depends}, ${sphinxdoc:Depends}
+Description: applications for batch processing of CT scans - documentation.
+ CT Utils is a suite of small utilities for batch processing of data from CT
+ scanners in a variety of commonly used formats (TXM, VGI, TIFF stacks).
+ .
+ This is the documentation for the package.

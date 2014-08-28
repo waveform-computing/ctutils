@@ -1,0 +1,10 @@
+Document: cutils
+Title: CT Utils
+Author: Dave Hughes <dave@waveform.org.uk>
+Abstract: Documentation for the CT Utils suite.
+Section: Science
+
+Format: HTML
+Index: /usr/share/doc/ctutils-docs/html/index.html
+Files: /usr/share/doc/ctutils-docs/html/*
+
