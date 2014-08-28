@@ -25,6 +25,7 @@ from __future__ import (
 str = type('')
 
 import sys
+PY3 = sys.version_info[0] == 3
 import os
 import io
 import csv
@@ -77,7 +78,7 @@ class CtAggApplication(TerminalApplication):
             help='any counts below the specified filter level will be '
             'excluded from the CSV output')
         self.parser.add_argument('input', type=FileType('rb'))
-        if sys.version_info[0] == 3:
+        if PY3:
             self.parser.add_argument('output', nargs='?', type=FileType('w', newline=''))
         else:
             self.parser.add_argument('output', nargs='?', type=FileType('wb'))
@@ -101,8 +102,10 @@ class CtAggApplication(TerminalApplication):
         logging.info('Input contains %d images', len(reader))
         if not args.output:
             filename = ''.join((os.path.splitext(args.input.name)[0], '.csv'))
-            if sys.version_info[0] == 3:
+            if PY3:
                 args.output = io.open(filename, 'w', newline='')
+            else:
+                args.output = io.open(filename, 'wb')
         logging.info('Writing output to %s', args.output.name)
         writer = csv.writer(args.output)
         counter = collections.Counter()
