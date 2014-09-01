@@ -2,9 +2,8 @@
 CT Utils
 ========
 
-This project provides a set (currently one!) of small utilities for processing
-data from CT scanners in a variety of formats. Currently, the supported formats
-are:
+This project provides a set of small utilities for processing data from CT
+scanners in a variety of formats. Currently, the supported formats are:
 
 * Xradia's TXM format
 * Volume Graphics VGI+VOL format
