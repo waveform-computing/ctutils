@@ -119,6 +119,7 @@ latex_documents = [
 
 man_pages = [
         ('ctagg',    'ctagg',        'CT aggregrate utility',        [_setup.__author__], 1),
+        ('ctinfo',   'ctinfo',       'CT information utility',       [_setup.__author__], 1),
         ]
 
 #man_show_urls = False

@@ -72,7 +72,7 @@ DIST_DEB=dist/$(NAME)_$(VER)-1$(DEB_SUFFIX)_all.deb \
 DIST_DSC=dist/$(NAME)_$(VER)-1$(DEB_SUFFIX).tar.gz \
 	dist/$(NAME)_$(VER)-1$(DEB_SUFFIX).dsc \
 	dist/$(NAME)_$(VER)-1$(DEB_SUFFIX)_source.changes
-MAN_PAGES=man/ctagg.1
+MAN_PAGES=man/ctagg.1 man/ctinfo.1
 
 
 # Default target
