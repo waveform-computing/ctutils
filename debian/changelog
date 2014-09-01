@@ -1,5 +1,16 @@
-ctutils (0.1-1) UNRELEASED; urgency=low
+ctutils (0.2-1~ppa1) precise; urgency=low
+
+  * Fixed a missing configparser import
+  * Fixed a missing default file object when an output filename was not
+    specified under Python 2
+  * Added documentation including installation instructions for several
+    scientific Python distributions under Windows
+  * Added Debian packaging and a PPA for Ubuntu Linux
+
+ -- Dave Hughes <dave@waveform.org.uk>  Mon, 01 Sep 2014 23:48:18 +0100
+
+ctutils (0.1-1~ppa1) UNRELEASED; urgency=low
 
   * Initial release.
 
- -- Dave Hughes <dave@waveform.org.uk>  Tue, 23 Apr 2014 00:00:00 +0100
+ -- Dave Hughes <dave@waveform.org.uk>  Wed, 23 Apr 2014 09:00:00 +0100
