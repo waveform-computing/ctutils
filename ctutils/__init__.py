@@ -32,7 +32,7 @@ __project__      = 'ctutils'
 __version__      = '0.2'
 __author__       = 'Dave Hughes'
 __author_email__ = 'dave@waveform.org.uk'
-__url__          = 'http://pypi.python.org/pypi/ctutils'
+__url__          = 'http://ctutils.readthedocs.org/'
 __platforms__    = 'ALL'
 
 __classifiers__ = [
