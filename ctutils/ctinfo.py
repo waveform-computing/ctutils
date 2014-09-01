@@ -48,7 +48,7 @@ class CtInfoApplication(TerminalApplication):
         self.parser.add_argument('input', type=FileType('rb'))
 
     def main(self, args):
-        logging.info('Parsing input %s', args.input.name)
+        print('Filename: %s' % args.input.name)
         reader = open_scan(args.input)
         print('Input format: %s' % reader.format_name)
         print('Input resolution: %dx%d' % (reader.width, reader.height))
