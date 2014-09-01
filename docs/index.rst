@@ -11,6 +11,7 @@ Table of Contents
 
    install
    ctagg
+   ctinfo
    changelog
    license
 
