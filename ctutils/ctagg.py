@@ -38,8 +38,7 @@ import numpy as np
 
 from . import __version__
 from .terminal import TerminalApplication, FileType
-from .configparser import ConfigParser
-from .readers import TxmScanReader, VgiScanReader, TiffStackReader
+from .readers import open_scan
 
 
 def slice_str(s):
@@ -84,22 +83,12 @@ class CtAggApplication(TerminalApplication):
             self.parser.add_argument('output', nargs='?', type=FileType('wb'))
 
     def main(self, args):
-        try:
-            cls = {
-                '.txm': TxmScanReader,
-                '.vgi': VgiScanReader,
-                '.tif': TiffStackReader,
-                '.tiff': TiffStackReader,
-                }[os.path.splitext(args.input.name.lower())[1]]
-        except KeyError:
-            raise argparse.ArgumentError(
-                'Unrecognized file type: %s' % args.input.name)
         logging.info('Parsing input %s', args.input.name)
-        reader = cls(args.input)
-        logging.info('Input format is "%s"', reader.format_name)
-        logging.info('Input resolution is %dx%d', reader.width, reader.height)
-        logging.info('Input datatype is %s', reader.datatype().dtype.name)
-        logging.info('Input contains %d images', len(reader))
+        reader = open_scan(args.input)
+        logging.info('Input format: %s', reader.format_name)
+        logging.info('Input resolution: %dx%d', reader.width, reader.height)
+        logging.info('Input datatype: %s', reader.datatype().dtype.name)
+        logging.info('Input images: %d', len(reader))
         if not args.output:
             filename = ''.join((os.path.splitext(args.input.name)[0], '.csv'))
             if PY3:

@@ -82,7 +82,7 @@ Extract density measurements from the first slice in ``scan1.vgi`` into
 ``first.csv`` (this assumes a corresponding file named ``scan1.vol`` exists in
 the same directory as ``scan1.vgi``)::
 
-    $ ctagg --slice 0 scan1.vgi first.csv
+    $ ctagg --slice :1 scan1.vgi first.csv
 
 Extract density measurements from every third slice of the TIFF stack which
 includes ``slice001.tiff``, ignoring densities below 10 into ``quick.csv``,

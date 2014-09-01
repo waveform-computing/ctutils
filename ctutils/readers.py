@@ -33,6 +33,7 @@ import sys
 import os
 import io
 import struct
+import locale
 
 import compoundfiles
 import numpy as np
@@ -42,6 +43,10 @@ from .configparser import ConfigParser
 
 
 class TxmScanReader(object):
+    """
+    Reader for CT scans in Xradia TXM format.
+    """
+
     format_name = 'Xradia TXM format'
 
     def __init__(self, source):
@@ -85,7 +90,11 @@ class TxmScanReader(object):
 
 
 class VgiScanReader(object):
-    format_name = 'VGI ???'
+    """
+    Reader for CT scans in Volume Graphics format.
+    """
+
+    format_name = 'Volume Graphics format'
 
     def __init__(self, source):
         super(VgiScanReader, self).__init__()
@@ -136,6 +145,10 @@ class VgiScanReader(object):
 
 
 class TiffStackReader(object):
+    """
+    Reader for generic stacks of TIFF files.
+    """
+
     format_name = 'Generic TIFF stack'
 
     def __init__(self, source):
@@ -144,12 +157,17 @@ class TiffStackReader(object):
         self.width, self.height = sample.size
         try:
             self.datatype = {
+                'L':    np.uint8,
                 'I;16': np.uint16,
+                'I':    np.int32,
+                'F':    np.float32,
                 }[sample.mode]
         except KeyError:
             raise IOError('Unrecognized TIFF mode: %s' % sample.mode)
         self._data = []
         path, name = os.path.split(source.name)
+        if not path:
+            path = os.getcwd()
         ext = os.path.splitext(name)[1]
         for filename in os.listdir(path):
             if os.path.splitext(filename)[1] == ext:
@@ -171,4 +189,31 @@ class TiffStackReader(object):
         img = Image.open(key)
         return np.fromiter(img.getdata(), dtype=self.datatype)
 
+
+def open_scan(filename_or_obj):
+    """
+    Generic routine for opening a CT scan.
+
+    The *filename* parameter specifies the path and filename of the CT scan to
+    open. The routine will select a reader class based upon the extension of
+    *filename*. The returned object will represent a sequence of numpy arrays,
+    each of which represents a single image (slice) of the scan.
+    """
+    if isinstance(filename_or_obj, bytes):
+        filename_or_obj = filename_or_obj.decode(locale.getpreferredencoding())
+    if isinstance(filename_or_obj, str):
+        f = io.open(filename_or_obj, 'rb')
+    else:
+        f = filename_or_obj
+    try:
+        cls = {
+            '.txm': TxmScanReader,
+            '.vgi': VgiScanReader,
+            '.tif': TiffStackReader,
+            '.tiff': TiffStackReader,
+            }[os.path.splitext(f.name.lower())[1]]
+    except KeyError:
+        raise ValueError(
+            'Unrecognized file type: %s' % f.name)
+    return cls(f)
 

@@ -1,4 +1,21 @@
 # vim: set noet sw=4 ts=4 fileencoding=utf-8:
+#
+# Copyright 2014 Dave Hughes <dave@waveform.org.uk>.
+#
+# This file is part of ctutils.
+#
+# ctutils is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later
+# version.
+#
+# ctutils is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+# A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# ctutils.  If not, see <http://www.gnu.org/licenses/>.
+
 
 # External utilities
 PYTHON=python
@@ -93,7 +110,7 @@ deb: $(DIST_DEB) $(DIST_DSC)
 dist: $(DIST_EGG) $(DIST_DEB) $(DIST_DSC) $(DIST_TAR) $(DIST_ZIP)
 
 develop: tags
-	$(PIP) install -e .
+	$(PIP) install -e .[doc,test]
 
 test:
 	$(COVERAGE) run -m $(PYTEST) tests -v
