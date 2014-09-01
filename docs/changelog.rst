@@ -4,7 +4,7 @@
 Change log
 ==========
 
-Release 0.2 (2014-08-28)
+Release 0.2 (2014-09-01)
 ========================
 
 The second release fixes some silly bugs and adds a few new features:
