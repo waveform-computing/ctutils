@@ -29,7 +29,7 @@ str = type('')
 import sys
 
 __project__      = 'ctutils'
-__version__      = '0.2'
+__version__      = '0.3'
 __author__       = 'Dave Hughes'
 __author_email__ = 'dave@waveform.org.uk'
 __url__          = 'http://ctutils.readthedocs.org/'
