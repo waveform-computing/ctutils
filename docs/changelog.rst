@@ -4,6 +4,15 @@
 Change log
 ==========
 
+
+Release 0.3 (2015-06-03)
+========================
+
+The third release adds support for a couple of formats:
+
+* Added support for unsigned 16-bit and 32-bit integer data to the VGI file
+  reader
+
 Release 0.2 (2014-09-01)
 ========================
 
