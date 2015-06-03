@@ -120,6 +120,8 @@ class VgiScanReader(object):
             self.datatype = {
                 ('float', '32'): np.float32,
                 ('float', '64'): np.float64,
+                ('unsigned integer', '16'): np.uint16,
+                ('unsigned integer', '32'): np.uint32,
                 }[(datatype, databits)]
         except KeyError:
             raise IOError(
