@@ -89,7 +89,7 @@ Project homepage is at
                 application=QtGui.QApplication.instance().applicationName(),
                 version=QtGui.QApplication.instance().applicationVersion(),
                 url='https://www.waveform.org.uk/ctutils/',
-                author='Dave Hughes',
+                author='Dave Jones',
                 author_email='dave@waveform.org.uk',
             ))
 

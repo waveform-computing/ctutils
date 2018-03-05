@@ -105,5 +105,5 @@ and VGI+VOL), specifically in terms of the data types supported within these
 files. If you encounter a file which does not work with CT Utils, please file a
 `bug report`_ so that we can enhance the suite.
 
-.. _bug report: https://github.com/waveform80/ctutils/issues
+.. _bug report: https://github.com/waveform-computing/ctutils/issues
 

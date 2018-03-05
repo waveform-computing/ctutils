@@ -36,7 +36,7 @@ Links
 * The `documentation`_ is hosted by ReadTheDocs
 
 .. _documentation: http://ctutils.readthedocs.org/
-.. _source code: https://github.com/waveform80/ctutils
-.. _bug tracker: https://github.com/waveform80/ctutils/issues
+.. _source code: https://github.com/waveform-computing/ctutils
+.. _bug tracker: https://github.com/waveform-computing/ctutils/issues
 .. _GPL v3: https://www.gnu.org/licenses/gpl-3.0.html
 

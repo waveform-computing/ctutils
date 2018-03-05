@@ -1,6 +1,6 @@
 # vim: set et sw=4 sts=4 fileencoding=utf-8:
 
-# Copyright 2014 Dave Hughes <dave@waveform.org.uk>.
+# Copyright 2014 Dave Jones <dave@waveform.org.uk>.
 #
 # This file is part of ctutils.
 #
@@ -30,9 +30,9 @@ import sys
 
 __project__      = 'ctutils'
 __version__      = '0.3'
-__author__       = 'Dave Hughes'
+__author__       = 'Dave Jones'
 __author_email__ = 'dave@waveform.org.uk'
-__url__          = 'http://ctutils.readthedocs.org/'
+__url__          = 'http://ctutils.readthedocs.io/'
 __platforms__    = 'ALL'
 
 __classifiers__ = [
